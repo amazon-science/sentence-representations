@@ -6,7 +6,7 @@ This framework provides implementations of our models developped for sentence re
 
 - PairSupCon  [Pairwise Supervised Contrastive Learning of Sentence Representations (EMNLP 2021)](https://aclanthology.org/2021.emnlp-main.467/)
 
-- SCCL [Supporting Clustering with Contrastive Learning](https://aclanthology.org/2021.naacl-main.427.pdf). (A contrastive learning supported text clustering framework, which can be leveraged for learning both dense representations or categorical representations. Checkout our implementations here https://github.com/amazon-research/sccl)
+- SCCL [Supporting Clustering with Contrastive Learning](https://aclanthology.org/2021.naacl-main.427.pdf). (A contrastive learning supported text clustering approach, which can be leveraged for learning both dense representations and categorical representations. Checkout our implementations [here](https://github.com/amazon-research/sccl))
 
 
 

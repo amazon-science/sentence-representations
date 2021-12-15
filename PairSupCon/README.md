@@ -11,39 +11,41 @@ This repository contains the code for our paper [Pairwise Supervised Contrastive
     sentence-transformers==2.0.0
     numpy==1.19.2
     sklearn==0.23.2
-    tensorboardX==2.3 
-
+    tensorboardX==2.3
+    pandas 
+   
 
 ## To run the code:
     bash ./scripts/run_pairsupcon.sh
-    
-    
 
-## Run PairSupCon with your specific parameters
 
-    python main.py \
-        --resdir /home/ec2-user/efs/dejiao-explore/experiments/train/pairsupcon/ \ # results directory
-        --use_stsb_dev \  # use STS-B as dev set or not, default False
-        --path_sts_data /home/ec2-user/efs/dejiao-explore/all-datasets/senteval_data/ \ # STS-B data path
-        --datapath s3://dejiao-experiment-meetingsum/datasets/NLI/ \ # NLI training data path 
-        --dataname nli_train_posneg \
-        --text sentence \  #column name for the NLI sentences
-        --pairsimi pairsimi \ #column name for the NLI pairwise labels
-        --num_classes 2  \ # focuses on Entailment and Contradiction classification only
-        --mode pairsupcon \ 
-        --bert distilbert \
-        --contrast_type HardNeg \
-        --use_stsb_dev \
-        --lr 5e-06 \
-        --lr_scale 100 \
-        --batch_size 1024 \ #use a smaller batch size with single gpu
-        --max_length 32 \
-        --temperature 0.05 \
-        --beta 1 \
-        --epochs 1 \
-        --max_iter 10 \
-        --logging_step 250 \
-        --seed 0 &
+## Dataset
+
+We train our model over the combination of SNLI and MNLI datasets. As we stated in our paper, we drop the neural pairs as its functionality is already covered by the instance-discrimination loss. You can also download the data from the [SimCSE](https://github.com/princeton-nlp/SimCSE/blob/main/data/download_nli.sh) and run the following code:
+
+    df = pd.read_csv("./nli_for_simcse.csv")
+    sent0 = df.sent0.values
+    sent1 = np.concatenate((sent0, sent0), axis=0)
+    sent2 = np.concatenate((df.sent1.values, df.hard_neg.values), axis=0)
+
+    dfnew = pd.DataFrame({'sentence1':sent1, 'sentence2':sent2, 'pairsimi': np.array([1]*len(sent0) + [0]*len(sent0))})
+    dfnew = dfnew.sample(frac=1, replace=False)
+    dfnew.to_csv("path-to-the-nli-dataset/nli_train_posneg.csv", index=False)
+
+
+## Downstream Evaluation
+
+We provide the evaluation code for both STS and Clustering evaluation. Navigate to the "DownstreamEval" folder, and run the following:
+
+     1. bash run_sts.sh 
+        ** you need to download the senteval datasets
+
+     2. bash run_clustering.sh
+        ** download the clustering datasets from https://github.com/rashadulrakib/short-text-clustering-enhancement/tree/master/data  
+
+        store it in "your-path-to-text-clustering-datasets", and update the "shorttext_clustering_datapath=your-path-to-text-clustering-datasets" in ./DownstreamEval/clustering/dataloader.py
+
+    
 
 
 
@@ -64,5 +66,9 @@ This repository contains the code for our paper [Pairwise Supervised Contrastive
     publisher = "Association for Computational Linguistics",
     url = "https://aclanthology.org/2021.emnlp-main.467",
     pages = "5786--5798",
-    abstract = "Many recent successes in sentence representation learning have been achieved by simply fine-tuning on the Natural Language Inference (NLI) datasets with triplet loss or siamese loss. Nevertheless, they share a common weakness: sentences in a contradiction pair are not necessarily from different semantic categories. Therefore, optimizing the semantic entailment and contradiction reasoning objective alone is inadequate to capture the high-level semantic structure. The drawback is compounded by the fact that the vanilla siamese or triplet losses only learn from individual sentence pairs or triplets, which often suffer from bad local optima. In this paper, we propose PairSupCon, an instance discrimination based approach aiming to bridge semantic entailment and contradiction understanding with high-level categorical concept encoding. We evaluate PairSupCon on various downstream tasks that involve understanding sentence semantics at different granularities. We outperform the previous state-of-the-art method with 10{\%}{--}13{\%} averaged improvement on eight clustering tasks, and 5{\%}{--}6{\%} averaged improvement on seven semantic textual similarity (STS) tasks.",
-}
+    abstract = "Many recent successes in sentence representation learning have been achieved by simply fine-tuning on the Natural Language Inference (NLI) datasets with triplet loss or siamese loss. Nevertheless, they share a common weakness: sentences in a contradiction pair are not necessarily from different semantic categories. Therefore, optimizing the semantic entailment and contradiction reasoning objective alone is inadequate to capture the high-level semantic structure. The drawback is compounded by the fact that the vanilla siamese or triplet losses only learn from individual sentence pairs or triplets, which often suffer from bad local optima. In this paper, we propose PairSupCon, an instance discrimination based approach aiming to bridge semantic entailment and contradiction understanding with high-level categorical concept encoding. We evaluate PairSupCon on various downstream tasks that involve understanding sentence semantics at different granularities. We outperform the previous state-of-the-art method with 10{\%}{--}13{\%} averaged improvement on eight clustering tasks, and 5{\%}{--}6{\%} averaged improvement on seven semantic textual similarity (STS) tasks."}
+    
+    
+
+
+

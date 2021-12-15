@@ -1,4 +1,4 @@
-## Sentence Representation Learning with Transformers
+## Sentence Representations Learning with Transformers
 
 This framework provides implementations of our models developped for sentence representation learning.  The following publications are implemented in this repo,
 

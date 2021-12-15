@@ -1,11 +1,13 @@
 ## Sentence Representation Learning with Transformers
 
-This framework provides implementations of our models developped for sentence representation learning.  The following publications are implemented in this repo, 
+This framework provides implementations of our models developped for sentence representation learning.  The following publications are implemented in this repo,
+
+- VaSCL [Virtual Augmentation Supported Contrastive Learning of Sentence Representations](https://arxiv.org/abs/2110.08552) (Coming SOON!) 
 
 - PairSupCon  [Pairwise Supervised Contrastive Learning of Sentence Representations (EMNLP 2021)](https://aclanthology.org/2021.emnlp-main.467/)
 
+- SCCL [Supporting Clustering with Contrastive Learning](https://aclanthology.org/2021.naacl-main.427.pdf). (A contrastive learning supported text clustering framework, which can be leveraged for learning both dense representations or categorical representations. Checkout our implementations here https://github.com/amazon-research/sccl)
 
-- VaSCL [Virtual Augmentation Supported Contrastive Learning of Sentence Representations](https://arxiv.org/abs/2110.08552)
 
 
 

@@ -11,7 +11,7 @@ This framework provides implementations of our models developped for sentence re
 
 If you find this repository helpful, feel free to cite the associated publications:
 
-'''bibtex 
+```bibtex 
 @inproceedings{zhang-etal-2021-pairwise,
 title = "Pairwise Supervised Contrastive Learning of Sentence Representations",
 author = "Zhang, Dejiao  and
@@ -29,17 +29,18 @@ publisher = "Association for Computational Linguistics",
 url = "https://aclanthology.org/2021.emnlp-main.467",
 pages = "5786--5798",
 abstract = "Many recent successes in sentence representation learning have been achieved by simply fine-tuning on the Natural Language Inference (NLI) datasets with triplet loss or siamese loss. Nevertheless, they share a common weakness: sentences in a contradiction pair are not necessarily from different semantic categories. Therefore, optimizing the semantic entailment and contradiction reasoning objective alone is inadequate to capture the high-level semantic structure. The drawback is compounded by the fact that the vanilla siamese or triplet losses only learn from individual sentence pairs or triplets, which often suffer from bad local optima. In this paper, we propose PairSupCon, an instance discrimination based approach aiming to bridge semantic entailment and contradiction understanding with high-level categorical concept encoding. We evaluate PairSupCon on various downstream tasks that involve understanding sentence semantics at different granularities. We outperform the previous state-of-the-art method with 10{\%}{--}13{\%} averaged improvement on eight clustering tasks, and 5{\%}{--}6{\%} averaged improvement on seven semantic textual similarity (STS) tasks."}
-'''
+````
 
 
-'''bibtex
+
+```bibtex
 @article{zhang2021virtual,
   title={Virtual Augmentation Supported Contrastive Learning of Sentence Representations},
   author={Zhang, Dejiao and Xiao, Wei and Zhu, Henghui and Ma, Xiaofei and Arnold, Andrew O},
   journal={arXiv preprint arXiv:2110.08552},
   year={2021}
 }
-'''
+```
 
 
 

@@ -5,6 +5,8 @@ Ramesh Nallapati, Andrew Arnold, and Bing Xiang.
 This repository contains the code for our paper [Pairwise Supervised Contrastive Learning of Sentence Representations](https://aclanthology.org/2021.emnlp-main.467/).
 
 
+## Train PairSupCon on NLI or your own datasets 
+
 ### Dependencies:
     python==3.7.10 
     transformers==4.8.1
@@ -15,11 +17,11 @@ This repository contains the code for our paper [Pairwise Supervised Contrastive
     pandas 
    
 
-## To run the code:
+### To run the code:
     bash ./scripts/run_pairsupcon.sh
 
 
-## Dataset
+### NLI Dataset
 
 We train our model over the combination of SNLI and MNLI datasets. As we stated in our paper, we drop the neural pairs as its functionality is already covered by the instance-discrimination loss. You can also download the data from the [SimCSE](https://github.com/princeton-nlp/SimCSE/blob/main/data/download_nli.sh) and run the following code:
 
@@ -33,9 +35,25 @@ We train our model over the combination of SNLI and MNLI datasets. As we stated 
     dfnew.to_csv("path-to-the-nli-dataset/nli_train_posneg.csv", index=False)
 
 
+
+## Import PairSupCon from Huggingface Model Hub
+```python
+from transformers import AutoModel, AutoTokenizer
+
+# Import PairSupCon models
+tokenizer = AutoTokenizer.from_pretrained("aws-ai/pairsupcon-bert-base-uncased")
+model = AutoModel.from_pretrained("aws-ai/pairsupcon-bert-base-uncased")
+
+tokenizer = AutoTokenizer.from_pretrained("aws-ai/pairsupcon-bert-large-uncased")
+model = AutoModel.from_pretrained("aws-ai/pairsupcon-bert-large-uncased")
+
+```
+
+
+
 ## Downstream Evaluation
 
-We provide the evaluation code for both STS and Clustering evaluation. Navigate to the "DownstreamEval" folder, and run the following:
+We provide the evaluation code for both STS and Clustering evaluation. Navigate to the "../DownstreamEval" folder, and run the following:
 
      1. bash run_sts.sh 
         ** you need to download the senteval datasets

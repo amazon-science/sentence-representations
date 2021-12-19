@@ -1,18 +1,13 @@
+
+# python eval_sts.py \
+#     --path_to_sts_data /home/ec2-user/efs/dejiao-explore/all-datasets/senteval_data/ \
+#     --pretrained_model PairSupCon \
+#     --bert pairsupcon-base \
+#     --respath /home/ec2-user/efs/dejiao-explore/experiments/evaluation/PSC_Baseline/ 
+    
+
 python eval_sts.py \
-    --eval_instance local \
-    --pretrained_dir path-to-your-ckpt-for-evaluation \
-    --path_sts path-to-the-senteval-datasets \
-    --pdataname nli_train_posneg \
-    --mode pairsupcon \
-    --bert bertbase \
-    --contrast_type HardNeg \
-    --temperature 0.05 \
-    --beta 1 \
-    --lr 5e-06 \
-    --lr_scale 100 \
-    --p_batchsize 1024 \
-    --pretrain_epoch 3 \
-    --eval_epoch 3 \
-    --seed 0 \
-    --pseed 0 \
-    --device_id 0 
+    --path_to_sts_data /home/ec2-user/efs/dejiao-explore/all-datasets/senteval_data/ \
+    --pretrained_model PairSupCon \
+    --bert pairsupcon-large \
+    --respath /home/ec2-user/efs/dejiao-explore/experiments/evaluation/PSC_Baseline/ 

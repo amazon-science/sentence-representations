@@ -63,7 +63,7 @@ def get_args(argv):
     parser.add_argument('--max_iter', type=int, default=100000000)
     # Contrastive learning
     parser.add_argument('--mode', type=str, default='pairsupcon', help="")
-    parser.add_argument('--bert', type=str, default='distilbert', help="")
+    parser.add_argument('--bert', type=str, default='bertbase', choices=["bertbase", "bertlarge"], help="")
     parser.add_argument('--contrast_type', type=str, default="HardNeg")
     parser.add_argument('--feat_dim', type=int, default=128, help="dimension of the projected features for instance discrimination loss")
     parser.add_argument('--temperature', type=float, default=0.05, help="temperature required by contrastive loss")

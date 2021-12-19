@@ -1,8 +1,10 @@
-# Pairwise Supervised Contrastive Learning of Sentence Representations (EMNLP 2021) 
-Dejiao Zhang, Shang-Wen Li, Wei Xiao, Henghui Zhu,
-Ramesh Nallapati, Andrew Arnold, and Bing Xiang. 
+# PairSupCon  
 
-This repository contains the code for our paper [Pairwise Supervised Contrastive Learning of Sentence Representations](https://aclanthology.org/2021.emnlp-main.467/).
+This repository contains the code for our paper [Pairwise Supervised Contrastive Learning of Sentence Representations (EMNLP 2021)](https://aclanthology.org/2021.emnlp-main.467/). Dejiao Zhang, Shang-Wen Li, Wei Xiao, Henghui Zhu, Ramesh Nallapati, Andrew Arnold, and Bing Xiang.
+
+
+## Overview
+![](figure/model.png)
 
 
 ## Train PairSupCon on NLI or your own datasets 
@@ -53,15 +55,7 @@ model = AutoModel.from_pretrained("aws-ai/pairsupcon-bert-large-uncased")
 
 ## Downstream Evaluation
 
-We provide the evaluation code for both STS and Clustering evaluation. Navigate to the "../DownstreamEval" folder, and run the following:
-
-     1. bash run_sts.sh 
-        ** you need to download the senteval datasets
-
-     2. bash run_clustering.sh
-        ** download the clustering datasets from https://github.com/rashadulrakib/short-text-clustering-enhancement/tree/master/data  
-
-        store it in "your-path-to-text-clustering-datasets", and update the "shorttext_clustering_datapath=your-path-to-text-clustering-datasets" in ./DownstreamEval/clustering/dataloader.py
+We provide the evaluation code for both STS and Clustering evaluation. Please navigate to the "../DownstreamEval" folder and checkout the details there. 
 
     
 
@@ -88,6 +82,13 @@ pages = "5786--5798",
 abstract = "Many recent successes in sentence representation learning have been achieved by simply fine-tuning on the Natural Language Inference (NLI) datasets with triplet loss or siamese loss. Nevertheless, they share a common weakness: sentences in a contradiction pair are not necessarily from different semantic categories. Therefore, optimizing the semantic entailment and contradiction reasoning objective alone is inadequate to capture the high-level semantic structure. The drawback is compounded by the fact that the vanilla siamese or triplet losses only learn from individual sentence pairs or triplets, which often suffer from bad local optima. In this paper, we propose PairSupCon, an instance discrimination based approach aiming to bridge semantic entailment and contradiction understanding with high-level categorical concept encoding. We evaluate PairSupCon on various downstream tasks that involve understanding sentence semantics at different granularities. We outperform the previous state-of-the-art method with 10{\%}{--}13{\%} averaged improvement on eight clustering tasks, and 5{\%}{--}6{\%} averaged improvement on seven semantic textual similarity (STS) tasks."}
 ```
     
+
+Contact person: [Dejiao Zhang](https://www.amazon.science/author/deijao-zhang), [dejiaoz@amazon.com](dejiaoz@amazon.com)
+
+
+## License
+
+This project is licensed under the Apache-2.0 License.
     
 
 

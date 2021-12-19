@@ -3,20 +3,6 @@ import pandas as pd
 import torch.utils.data as util_data
 from torch.utils.data import Dataset
 
-shorttext_clustering_datapath = "your-path"
-
-
-CLUSTER_DATASETS = {
-    "agnews":(shorttext_clustering_datapath + 'agnews.csv', 4, 'text', 'label'),
-    "searchsnippets":(shorttext_clustering_datapath + 'searchsnippets.csv', 8, 'text', 'label'),
-    "stackoverflow":(shorttext_clustering_datapath + 'stackoverflow.csv', 20, 'text', 'label'),
-    "biomedical":(shorttext_clustering_datapath + 'biomedical.csv', 20, 'text', 'label'),
-    "tweet":(shorttext_clustering_datapath + 'tweet89.csv', 89, 'text', 'label'),
-    "googleT":(shorttext_clustering_datapath + 'googlenews_T.csv', 152, 'text', 'label'),
-    "googleS":(shorttext_clustering_datapath + 'googlenews_S.csv', 152, 'text', 'label'),
-    "googleTS":(shorttext_clustering_datapath + 'googlenews_TS.csv', 152, 'text', 'label'),
-}
-
 
 class TextClustering(Dataset):
     def __init__(self, train_x, train_y):

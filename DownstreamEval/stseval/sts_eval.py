@@ -11,7 +11,7 @@ PATH_SENTEVAL = './SentEval'
 sys.path.insert(0, PATH_SENTEVAL)
 import senteval
 
-def sts_eval(args, transfer_tasks, model, tokenizer, resname):
+def sts_eval(args, transfer_tasks, model, tokenizer):
     # Set up logger and device
     logging.basicConfig(format='%(asctime)s : %(message)s', level=logging.DEBUG)
 
@@ -37,7 +37,7 @@ def sts_eval(args, transfer_tasks, model, tokenizer, resname):
 
 
     # define senteval params
-    params_senteval = {'task_path': args.path_sts, 'usepytorch': True, 'kfold': 10}
+    params_senteval = {'task_path': args.path_to_sts_data, 'usepytorch': True, 'kfold': 10}
     params_senteval['classifier'] = {'nhid': 0, 'optim': 'adam', 'batch_size': 64,
                                  'tenacity': 5, 'epoch_size': 4}
     params_senteval['device'] = args.device

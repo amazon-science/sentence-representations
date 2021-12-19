@@ -8,19 +8,32 @@ import logging
 import torch
 
 from configs.configure import get_args, get_checkpoint
-from semsimilarity.sts_eval import sts_eval
+from stseval.sts_eval import sts_eval
 import subprocess
+
+def parse_results(res, resname):
+    
+    dfsp = {'model': resname}
+    for key, val in res.items():
+        if key in ['STS12', 'STS13', 'STS14', 'STS15', 'STS16']:
+            dfsp[key] = val['all']['spearman']['all']
+        elif key in ['SICKRelatedness', 'STSBenchmark']:
+            dfsp[key] = val['test']['spearman'].correlation
+        elif key in ['MR', 'CR', 'SUBJ', 'MPQA', 'SST2', 'SST5', 'TREC', 'MRPC', 'SICKEntailment']:
+            dfsp[key] = val['acc']
+        else:
+            continue
+     
+    df = pd.DataFrame([dfsp], index=[0], columns=list(res.keys()))
+    df['Avg'] = df.mean(axis=1)
+    return df
 
 
 if __name__ == "__main__":
     args = get_args(sys.argv[1:])
-    args.device = torch.device(f"cuda:{args.device_id}") if torch.cuda.is_available() else torch.device("cpu")
-    
-    if args.eval_instance == "sagemaker":
-        args.pretrained_dir = os.environ["SM_CHANNEL_PRETRAIN"]
-        args.path_sts = os.environ["SM_CHANNEL_DATA"]
-        
+    args.device = torch.device(f"cuda:{args.device_id}") if torch.cuda.is_available() else torch.device("cpu")   
     args.resprefix = "sts"
+    
     transfer_tasks = ['STS12', 'STS13', 'STS14', 'STS15', 'STS16', 'SICKRelatedness', 'STSBenchmark']
     try:
         os.makedirs(args.respath, exist_ok = True)
@@ -28,17 +41,14 @@ if __name__ == "__main__":
     except OSError as error:
         print("Directory '%s' can not be created")
     
-    
-    args.eval_epoch = epoch
-    
     model, tokenizer, resname = get_checkpoint(args)
 
-    results = sts_eval(args, transfer_tasks, model, tokenizer, resname)
-
+    results = sts_eval(args, transfer_tasks, model, tokenizer)
     np.save(args.respath+resname+'.npy', results)
-    print(results, results.keys())
-        
-        
-    if args.eval_instance == "sagemaker":
-        subprocess.run(["aws", "s3", "cp", "--recursive", args.respath, args.s3_respath,])
+    
+    df = parse_results(results, resname)
+    print(df.round(4))
 
+    
+
+        

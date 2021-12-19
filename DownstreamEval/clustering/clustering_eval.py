@@ -9,7 +9,7 @@ from sklearn import cluster
 
 import torch
 from .metric import Confusion
-from .dataloader import cluster_data_loader, CLUSTER_DATASETS
+from .dataloader import cluster_data_loader
 
 PATH_CONFIG = '../'
 sys.path.insert(0, PATH_CONFIG)
@@ -52,7 +52,7 @@ def clustering_single_trial(y_true, embeddings=None, num_classes=10, random_stat
     return confusion.acc(), confusion.clusterscores()
 
 
-def clustering_eval(bert, tokenizer, datanames, resname, args):
+def clustering_eval(bert, tokenizer, datanames, resname, args, CLUSTER_DATASETS):
     clures, index, count = [], [], 0
     for data in datanames:
         datapath, num_classes, text, label = CLUSTER_DATASETS[data]

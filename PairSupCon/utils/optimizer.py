@@ -4,7 +4,6 @@ from transformers import AutoTokenizer, AutoConfig, AutoModel
 MODEL_CLASS = {
     "bertlarge": 'bert-large-uncased',
     "bertbase": 'bert-base-uncased',
-    "distilbert": 'distilbert-base-uncased', 
 }
 
 

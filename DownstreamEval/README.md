@@ -17,10 +17,7 @@
     1. dataset: download the dataset by runing the following: 
               ./SentEval/data/downstream/download_dataset.sh
 
-    2. run:
-```bash
-run_sts.sh
-```
+    2. bash run_sts.sh
    
    
 ### Clustering 

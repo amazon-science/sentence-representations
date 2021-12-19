@@ -46,8 +46,8 @@ def get_args(argv):
     parser.add_argument('--resdir', type=str, default='./results')
     parser.add_argument('--logging_step', type=int, default=250, help="")
     parser.add_argument('--dev_set', default="None", help="use sts-b as dev set or not", choices=["None", "sts"])  
-    parser.add_argument('--path_sts_data', type=str, default='/home/ec2-user/efs/dejiao-explore/all-datasets/senteval_data/', help="use sts-b as dev set")
-    parser.add_argument('--s3_ckptdir', type=str, default='/home/ec2-user/efs/dejiao-explore/all-datasets/senteval_data/', help="s3path for ckpts")  
+    parser.add_argument('--path_sts_data', type=str, default='', help="use sts-b as dev set")
+    parser.add_argument('--s3_ckptdir', type=str, default='', help="s3path for ckpts")  
     # Dataset
     parser.add_argument('--datapath', type=str, default='../datasets/NLI/')
     parser.add_argument('--dataname', type=str, default='nli_pairsupcon.csv', help="")

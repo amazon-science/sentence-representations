@@ -22,7 +22,9 @@
    
 ### Clustering 
 
-    1. download the clustering datasets from https://github.com/rashadulrakib/short-text-clustering-enhancement/tree/master/data  and store it in "your-path-to-cluster-data"
+    1. download the clustering datasets from https://github.com/rashadulrakib/short-text-clustering-enhancement/tree/master/data, 
+       1a. convert each dataset to csv files with column names "text" (for text samples) and "label" (for cluster labels)
+       1b. store it in "your-path-to-cluster-data"
 
     2. bash run_clustering.sh
 

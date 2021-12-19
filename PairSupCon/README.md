@@ -27,14 +27,19 @@ This repository contains the code for our paper [Pairwise Supervised Contrastive
 
 We train our model over the combination of SNLI and MNLI datasets. As we stated in our paper, we drop the neural pairs as its functionality is already covered by the instance-discrimination loss. You can also download the data from the [SimCSE](https://github.com/princeton-nlp/SimCSE/blob/main/data/download_nli.sh) and run the following code:
 
-    df = pd.read_csv("./nli_for_simcse.csv")
-    sent0 = df.sent0.values
-    sent1 = np.concatenate((sent0, sent0), axis=0)
-    sent2 = np.concatenate((df.sent1.values, df.hard_neg.values), axis=0)
+```python
+import pandas as pd
 
-    dfnew = pd.DataFrame({'sentence1':sent1, 'sentence2':sent2, 'pairsimi': np.array([1]*len(sent0) + [0]*len(sent0))})
-    dfnew = dfnew.sample(frac=1, replace=False)
-    dfnew.to_csv("path-to-the-nli-dataset/nli_train_posneg.csv", index=False)
+df = pd.read_csv("./nli_for_simcse.csv")
+sent0 = df.sent0.values
+sent1 = np.concatenate((sent0, sent0), axis=0)
+sent2 = np.concatenate((df.sent1.values, df.hard_neg.values), axis=0)
+
+dfnew = pd.DataFrame({'sentence1':sent1, 'sentence2':sent2, 'pairsimi': np.array([1]*len(sent0) + [0]*len(sent0))})
+dfnew = dfnew.sample(frac=1, replace=False)
+dfnew.to_csv("path-to-the-nli-dataset/nli_train_posneg.csv", index=False)
+
+```
 
 
 

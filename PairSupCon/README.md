@@ -1,4 +1,4 @@
-# PairSupCon  
+## PairSupCon: Pairwise Supervised Contrastive Learning of Sentence Representations  
 
 This repository contains the code for our paper [Pairwise Supervised Contrastive Learning of Sentence Representations (EMNLP 2021)](https://aclanthology.org/2021.emnlp-main.467/). Dejiao Zhang, Shang-Wen Li, Wei Xiao, Henghui Zhu, Ramesh Nallapati, Andrew Arnold, and Bing Xiang.
 

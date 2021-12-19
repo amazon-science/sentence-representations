@@ -17,8 +17,8 @@ if __name__ == "__main__":
     args.device = torch.device(f"cuda:{args.device_id}") if torch.cuda.is_available() else torch.device("cpu")
     args.resprefix = "cluster"
     
-#     datanames = ["agnews", "searchsnippets", "stackoverflow", "biomedical", "tweet", "googleT", "googleS", "googleTS"]
-    datanames = ["agnews", "searchsnippets"]
+    datanames = ["agnews", "searchsnippets", "stackoverflow", "biomedical", "tweet", "googleT", "googleS", "googleTS"]
+    # datanames = ["agnews", "searchsnippets"]
 
     CLUSTER_DATASETS = {
         "agnews":(args.path_to_cluster_data + 'agnews.csv', 4, 'text', 'label'),

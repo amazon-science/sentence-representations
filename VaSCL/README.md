@@ -6,7 +6,7 @@ Dejiao Zhang, Wei Xiao, Henghui Zhu, Xiaofei Ma, Andrew Arnold.
 
 
 ## Overview
-![](figure/model.png)
+![](figure/VaSCL.png)
 
 
 ### Dependencies: 

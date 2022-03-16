@@ -4,7 +4,7 @@ This repository contains the code for our paper [Pairwise Supervised Contrastive
 
 
 ## Overview
-![](figure/VaSCL.png)
+![](figure/model.png)
 
 
 ## Train PairSupCon on NLI or your own datasets 

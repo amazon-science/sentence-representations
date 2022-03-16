@@ -2,7 +2,7 @@
 
 This framework provides implementations of our models developped for sentence representation learning.  The following publications are implemented in this repo,
 
-- VaSCL [Virtual Augmentation Supported Contrastive Learning of Sentence Representations](https://arxiv.org/abs/2110.08552) (Coming SOON!) 
+- VaSCL [Virtual Augmentation Supported Contrastive Learning of Sentence Representations (Findings of ACL 2022)](https://arxiv.org/abs/2110.08552)  
 
 - PairSupCon  [Pairwise Supervised Contrastive Learning of Sentence Representations (EMNLP 2021)](https://aclanthology.org/2021.emnlp-main.467/)
 
@@ -12,6 +12,16 @@ This framework provides implementations of our models developped for sentence re
 
 
 If you find this repository helpful, feel free to cite the associated publications:
+```bibtex
+@article{zhang2021virtual,
+  title={Virtual Augmentation Supported Contrastive Learning of Sentence Representations},
+  author={Zhang, Dejiao and Xiao, Wei and Zhu, Henghui and Ma, Xiaofei and Arnold, Andrew O},
+  journal={arXiv preprint arXiv:2110.08552},
+  year={2021}
+}
+
+```
+
 
 ```bibtex 
 @inproceedings{zhang-etal-2021-pairwise,

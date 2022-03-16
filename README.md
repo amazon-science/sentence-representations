@@ -45,17 +45,6 @@ abstract = "Many recent successes in sentence representation learning have been 
 
 
 
-```bibtex
-@article{zhang2021virtual,
-  title={Virtual Augmentation Supported Contrastive Learning of Sentence Representations},
-  author={Zhang, Dejiao and Xiao, Wei and Zhu, Henghui and Ma, Xiaofei and Arnold, Andrew O},
-  journal={arXiv preprint arXiv:2110.08552},
-  year={2021}
-}
-```
-
-
-
 Contact person: [Dejiao Zhang](https://www.amazon.science/author/deijao-zhang), [dejiaoz@amazon.com](dejiaoz@amazon.com)
 
 

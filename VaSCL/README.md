@@ -41,7 +41,7 @@ python3 main.py \
    --text2 text \
    --bert robertabase \
    --lr 5e-06 \
-   --lr_scale 100 \
+   --lr_scale 100000 \
    --batch_size 1024 \
    --epochs 5 \
    --max_iter 100 \

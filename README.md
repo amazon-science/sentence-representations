@@ -2,6 +2,8 @@
 
 This framework provides implementations of our models developped for sentence representation learning.  The following publications are implemented in this repo,
 
+- DSE [Learning Dialogue Representations from Consecutive Utterances (NAACL 2022)](https://www.amazon.science/publications/learning-dialogue-representations-from-consecutive-utterances). Checkout our implementations [here](https://github.com/amazon-research/dse)
+
 - VaSCL [Virtual Augmentation Supported Contrastive Learning of Sentence Representations (Findings of ACL 2022)](https://arxiv.org/abs/2110.08552)  
 
 - PairSupCon  [Pairwise Supervised Contrastive Learning of Sentence Representations (EMNLP 2021)](https://aclanthology.org/2021.emnlp-main.467/)
@@ -10,16 +12,25 @@ This framework provides implementations of our models developped for sentence re
 
 
 
-
 If you find this repository helpful, feel free to cite the associated publications:
 ```bibtex
-@article{zhang2021virtual,
-  title={Virtual Augmentation Supported Contrastive Learning of Sentence Representations},
-  author={Zhang, Dejiao and Xiao, Wei and Zhu, Henghui and Ma, Xiaofei and Arnold, Andrew O},
-  journal={arXiv preprint arXiv:2110.08552},
-  year={2021}
+@inproceedings{zhang-etal-2022-virtual,
+    title = "Virtual Augmentation Supported Contrastive Learning of Sentence Representations",
+    author = "Zhang, Dejiao  and
+      Xiao, Wei  and
+      Zhu, Henghui  and
+      Ma, Xiaofei  and
+      Arnold, Andrew",
+    booktitle = "Findings of the Association for Computational Linguistics: ACL 2022",
+    month = may,
+    year = "2022",
+    address = "Dublin, Ireland",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2022.findings-acl.70",
+    doi = "10.18653/v1/2022.findings-acl.70",
+    pages = "864--876",
+    abstract = "Despite profound successes, contrastive representation learning relies on carefully designed data augmentations using domain-specific knowledge. This challenge is magnified in natural language processing, where no general rules exist for data augmentation due to the discrete nature of natural language. We tackle this challenge by presenting a Virtual augmentation Supported Contrastive Learning of sentence representations (VaSCL). Originating from the interpretation that data augmentation essentially constructs the neighborhoods of each training instance, we, in turn, utilize the neighborhood to generate effective data augmentations. Leveraging the large training batch size of contrastive learning, we approximate the neighborhood of an instance via its K-nearest in-batch neighbors in the representation space. We then define an instance discrimination task regarding the neighborhood and generate the virtual augmentation in an adversarial training manner. We access the performance of VaSCL on a wide range of downstream tasks and set a new state-of-the-art for unsupervised sentence representation learning.",
 }
-
 ```
 
 

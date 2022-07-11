@@ -1,6 +1,6 @@
 ## Sentence Representations Learning with Transformers
 
-This framework provides implementations of our models developped for sentence representation learning.  The following publications are implemented in this repo,
+This framework provides implementations of our models developed for sentence representation learning.  The following publications are implemented in this repo,
 
 - DSE [Learning Dialogue Representations from Consecutive Utterances (NAACL 2022)](https://www.amazon.science/publications/learning-dialogue-representations-from-consecutive-utterances). Checkout our implementations [here](https://github.com/amazon-research/dse)
 
@@ -9,6 +9,8 @@ This framework provides implementations of our models developped for sentence re
 - PairSupCon  [Pairwise Supervised Contrastive Learning of Sentence Representations (EMNLP 2021)](https://aclanthology.org/2021.emnlp-main.467/)
 
 - SCCL [Supporting Clustering with Contrastive Learning (NAACL 2021)](https://aclanthology.org/2021.naacl-main.427.pdf). (A contrastive learning supported text clustering approach, which can be leveraged for learning both dense and categorical representations. Checkout our implementation [here](https://github.com/amazon-research/sccl))
+
+Our checkpoints can be loaded from [HuggingFace Model Hub.](https://huggingface.co/aws-ai)
 
 
 
